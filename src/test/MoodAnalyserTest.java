@@ -1,27 +1,23 @@
 package test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
-
-import main.MoodAnalysisException;
-import main.MoodAnalyzerMain;
-import org.junit.jupiter.api.*;
 public class MoodAnalyserTest {
-    MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain(null);
+    public MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain();
 
-    //TC 3.1 Given NULL Mood Should Throw MoodAnalysisException
     @Test
-    public void testMoodAnalysis1() throws MoodAnalysisException {
-        String mood = moodAnalyzer.analyseMood();
+    //TC 1.1
+    public void testMoodAnalysis1(){
+        String mood = moodAnalyzer.analyseMood("I am in sad mood");
+        Assertions.assertEquals(mood, "SAD");
+    }
+
+    @Test
+    //TC 1.2
+    public void testMoodAnalysis2(){
+        String mood = moodAnalyzer.analyseMood("I am in Any Mood");
         Assertions.assertEquals(mood, "HAPPY");
     }
 
-    //Given Empty Mood Should Throw MoodAnalysisException indicating Empty
-
-    MoodAnalyzerMain moodAnalyzer2 = new MoodAnalyzerMain("");
-    @Test
-    public void testMoodAnalysis2() throws MoodAnalysisException {
-        String mood2 = moodAnalyzer2.analyseMood();
-        System.out.println(mood2);
-        Assertions.assertEquals(mood2, "HAPPY");
-    }
 }
