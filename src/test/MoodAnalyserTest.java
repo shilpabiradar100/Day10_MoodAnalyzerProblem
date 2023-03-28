@@ -1,23 +1,15 @@
 package test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.*;
 
 public class MoodAnalyserTest {
-    public MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain();
 
+    MoodAnalyzerMain moodAnalyzer = new MoodAnalyzerMain();
     @Test
-    //TC 1.1
+    //TC 2.1 Given Null Mood Should Return Happy
     public void testMoodAnalysis1(){
-        String mood = moodAnalyzer.analyseMood("I am in sad mood");
-        Assertions.assertEquals(mood, "SAD");
-    }
-
-    @Test
-    //TC 1.2
-    public void testMoodAnalysis2(){
-        String mood = moodAnalyzer.analyseMood("I am in Any Mood");
+        String mood = moodAnalyzer.analyseMood();
         Assertions.assertEquals(mood, "HAPPY");
     }
+
 
 }
